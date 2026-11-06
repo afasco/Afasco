@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research portfolio of a microbiologist and research officer working in fish safety, food quality, preservation, and sustainable resource valorisation.">
+  <meta name="theme-color" content="#102b2b">
+  <title>Research Portfolio | Microbiology & Sustainable Food Systems</title>
+  <style>
+    :root {
+      --ink: #172b2b;
+      --muted: #607171;
+      --deep: #102b2b;
+      --green: #1d6b5b;
+      --mint: #dcefe8;
+      --cream: #f6f5ef;
+      --paper: #fffefa;
+      --line: #dce3dc;
+      --gold: #d6a85f;
+      --shadow: 0 18px 50px rgba(16,43,43,.09);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+    .topbar {
+      background: rgba(16,43,43,.97); color: #fff; position: sticky; top: 0; z-index: 20;
+      border-bottom: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(12px);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: .92rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
+    .brand span { color: #9bd2bd; }
+    .navlinks { display: flex; gap: 25px; align-items: center; }
+    .navlinks a { color: #dce9e3; text-decoration: none; font-size: .88rem; }
+    .navlinks a:hover { color: #fff; }
+    .nav-cta { border: 1px solid rgba(255,255,255,.42); padding: 9px 15px; border-radius: 99px; }
+    .hero { background: var(--deep); color: #fff; overflow: hidden; position: relative; }
+    .hero:before, .hero:after { content: ""; position: absolute; border: 1px solid rgba(157,210,189,.18); border-radius: 50%; pointer-events: none; }
+    .hero:before { width: 560px; height: 560px; right: -120px; top: -260px; }
+    .hero:after { width: 390px; height: 390px; right: -30px; top: -175px; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr .6fr; gap: 60px; align-items: center; padding: 100px 0 105px; }
+    .eyebrow { color: #9bd2bd; text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; font-weight: 800; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.8rem, 6vw, 5.3rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 500; margin: 18px 0 22px; max-width: 760px; }
+    .hero p { color: #d3e1db; font-size: 1.08rem; max-width: 680px; margin: 0 0 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 19px; border-radius: 99px; font-weight: 750; font-size: .9rem; text-decoration: none; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #a8d7c2; color: var(--deep); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.42); color: #fff; }
+    .profile-card { justify-self: end; width: min(100%, 280px); aspect-ratio: 4/5; border: 1px solid rgba(255,255,255,.2); border-radius: 160px 160px 22px 22px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; background: linear-gradient(155deg, rgba(157,210,189,.22), rgba(255,255,255,.03)); }
+    .profile-mark { width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(255,255,255,.55); display: grid; place-items: center; font: 2rem Georgia, serif; color: #b7dfcf; margin-bottom: auto; }
+    .profile-card strong { font: 1.4rem Georgia, serif; }
+    .profile-card small { color: #c6d8d0; margin-top: 5px; }
+    section { padding: 88px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 36px; }
+    .kicker { color: var(--green); text-transform: uppercase; font-size: .73rem; font-weight: 850; letter-spacing: .16em; }
+    h2 { font: 500 clamp(2.1rem, 4vw, 3.2rem)/1.12 Georgia, "Times New Roman", serif; letter-spacing: -.035em; margin: 9px 0 0; }
+    .section-intro { max-width: 480px; color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 58px; align-items: start; }
+    .about-copy p { color: #4c6260; margin: 0 0 17px; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .stat { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .stat strong { display: block; font: 2.2rem Georgia, serif; color: var(--green); line-height: 1.1; }
+    .stat span { display: block; color: var(--muted); font-size: .85rem; margin-top: 9px; }
+    .soft { background: #edf2ec; }
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .research-card { background: var(--paper); border: 1px solid var(--line); padding: 25px; border-radius: var(--radius); min-height: 220px; }
+    .number { color: #91b9a8; font: 1.1rem Georgia, serif; }
+    .research-card h3, .project h3, .timeline h3 { font: 1.35rem Georgia, serif; margin: 17px 0 9px; }
+    .research-card p, .project p { color: var(--muted); font-size: .93rem; margin: 0; }
+    .experience-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 55px; }
+    .experience-note { color: var(--muted); max-width: 310px; }
+    .timeline { border-left: 1px solid #b9cbc0; padding-left: 28px; }
+    .timeline-item { position: relative; padding: 0 0 33px; }
+    .timeline-item:before { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--green); left: -34px; top: 8px; box-shadow: 0 0 0 5px var(--mint); }
+    .meta { color: var(--green); font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .timeline h3 { margin: 6px 0; }
+    .timeline p { color: var(--muted); margin: 7px 0 0; }
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .project { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+    .project-tag { display: inline-block; border-radius: 99px; padding: 5px 10px; background: var(--mint); color: #235b4d; font-size: .72rem; font-weight: 800; }
+    .project h3 { font-size: 1.55rem; margin: 16px 0 10px; }
+    .project ul { color: var(--muted); padding-left: 18px; margin: 14px 0 0; font-size: .9rem; }
+    .skills-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 55px; }
+    .skills-wrap p { color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; align-content: start; }
+    .chip { background: var(--paper); border: 1px solid var(--line); border-radius: 99px; padding: 9px 14px; font-size: .86rem; color: #38514d; }
+    .education-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .education { border-top: 2px solid var(--green); padding: 20px 0 0; }
+    .education h3 { font: 1.3rem Georgia, serif; margin: 0 0 6px; }
+    .education p { color: var(--muted); margin: 0; font-size: .92rem; }
+    .contact { background: var(--deep); color: white; }
+    .contact .kicker { color: #9bd2bd; }
+    .contact h2 { max-width: 620px; }
+    .contact-row { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-top: 28px; }
+    .contact p { color: #c6d8d0; max-width: 560px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-links a { text-decoration: none; color: white; border: 1px solid rgba(255,255,255,.35); padding: 10px 15px; border-radius: 99px; font-size: .88rem; }
+    footer { background: #0b2020; color: #9fb4ab; padding: 22px 0; font-size: .8rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
+    .edit-note { color: #a9c8bb; font-size: .78rem; margin-top: 20px; }
+    @media (max-width: 800px) {
+      .navlinks { gap: 13px; } .navlinks a:not(.nav-cta) { display: none; }
+      .hero-inner { grid-template-columns: 1fr; padding: 76px 0; gap: 35px; }
+      .profile-card { justify-self: start; width: 220px; aspect-ratio: 5/3; border-radius: 20px; }
+      .profile-mark { width: 55px; height: 55px; font-size: 1.5rem; }
+      .about-grid, .experience-layout, .skills-wrap { grid-template-columns: 1fr; gap: 28px; }
+      .research-grid { grid-template-columns: 1fr 1fr; }
+      .section-head { display: block; } .section-intro { margin-top: 16px; }
+      .contact-row { display: block; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 32px, 1120px); }
+      section { padding: 65px 0; }
+      .research-grid, .projects, .education-grid { grid-template-columns: 1fr; }
+      .stat-grid { gap: 9px; }
+      .stat { padding: 17px; }
+      footer .wrap { display: block; }
+    }
+    @media print {
+      .topbar { position: static; } .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .btn { border: 1px solid #777; } section { padding: 35px 0; } body { background: white; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">Research<span> / Portfolio</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner wrap">
+        <div>
+          <div class="eyebrow">Researcher · Microbiologist · Food systems</div>
+          <h1>Turning research into safer food and more sustainable resources.</h1>
+          <p>I am a microbiologist and Research Officer working at the intersection of fish safety, food quality, preservation technologies and sustainable resource utilisation. My work is driven by the potential of science to reduce post-harvest losses and create value from underutilised biological resources.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#research">Explore my research <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="profile-card" aria-label="Researcher profile">
+          <div class="profile-mark" aria-hidden="true">R</div>
+          <strong>Research & Impact</strong>
+          <small>Lagos, Nigeria · Open to research collaborations</small>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">A little about me</div><h2>Science with practical purpose.</h2></div>
+          <p class="section-intro">My approach combines laboratory investigation, applied research and knowledge sharing to address challenges across food quality, fisheries and biological resource use.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I currently serve as a Research Officer at the Nigerian Institute for Oceanography and Marine Research (NIOMR), where I contribute to research focused on the safety and quality of fish and fish products, preservation methods and the reduction of post-harvest losses.</p>
+            <p>My professional experience includes microbiological examination of fish, food products and water; microbial shelf-life assessment; sensory evaluation; and supporting research activities that improve fish processing and storage. I have also contributed to collaborative project coordination, technical reporting and the evaluation of improved fish-smoking technologies.</p>
+            <p>With academic training in microbiology and biotechnology, I am particularly interested in connecting applied microbiology with circular bioeconomy approaches—especially the conversion of agro-industrial and marine by-products into useful, value-added products.</p>
+          </div>
+          <div class="stat-grid">
+            <div class="stat"><strong>100+</strong><span>Undergraduate interns and visiting students supported in laboratory practice</span></div>
+            <div class="stat"><strong>2</strong><span>Academic degrees in microbiology</span></div>
+            <div class="stat"><strong>2024</strong><span>Joined NIOMR as a Research Officer</span></div>
+            <div class="stat"><strong>3</strong><span>Connected interests: food safety, preservation and resource valorisation</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="research">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Research interests</div><h2>Questions that guide my work.</h2></div>
+          <p class="section-intro">I am interested in research that links sound microbiological evidence to practical solutions for food systems and sustainable production.</p>
+        </div>
+        <div class="research-grid">
+          <article class="research-card"><div class="number">01 / Food safety</div><h3>Fish microbiology & quality</h3><p>Microbial quality assessment, hygiene indicators, foodborne microorganisms, antimicrobial susceptibility and quality assurance in fish and fish products.</p></article>
+          <article class="research-card"><div class="number">02 / Preservation</div><h3>Shelf-life & processing</h3><p>Evaluation of preservation methods, storage stability, fish-smoking technologies and approaches that reduce post-harvest losses.</p></article>
+          <article class="research-card"><div class="number">03 / Circular bioeconomy</div><h3>Waste valorisation</h3><p>Exploring the conversion of marine and agro-industrial by-products into feed ingredients, enzymes, bio-based products and other valuable resources.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap experience-layout">
+        <div>
+          <div class="kicker">Professional journey</div>
+          <h2>Research, collaboration & mentorship.</h2>
+          <p class="experience-note">Experience spanning applied laboratory research, collaborative project delivery, student supervision and scientific communication.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="meta">April 2024 – Present · Lagos, Nigeria</div>
+            <h3>Research Officer — Nigerian Institute for Oceanography and Marine Research</h3>
+            <p>Conduct microbiological analyses of fish, food products and water samples, including total viable counts, coliform counts, yeast and mould enumeration, and pathogen detection. Contribute to spoilage and shelf-life studies, sensory assessments and research on improved fish processing and preservation.</p>
+            <p>Support laboratory training and supervise more than 100 undergraduate interns and visiting students in aseptic techniques and good laboratory practice.</p>
+          </article>
+          <article class="timeline-item">
+            <div class="meta">November 2022 – April 2023 · Ibadan, Nigeria</div>
+            <h3>Graduate Research Assistant — University of Ibadan</h3>
+            <p>Worked on the production of phytase by <em>Aspergillus</em> species using agricultural waste substrates, with experience in submerged fermentation, spectrophotometric assays and process optimisation.</p>
+          </article>
+          <article class="timeline-item">
+            <div class="meta">Research collaboration & service</div>
+            <h3>Project support, mentoring & scientific engagement</h3>
+            <p>Contributed to the FAO-supported development and testing of prototype sustainable fish-smoking kilns for small-scale processors, including project meetings, budgeting support, microbial storage analysis, sensory evaluation and reporting. Also supported student research and participated in scientific training and professional activities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Selected research</div><h2>Projects & research experience.</h2></div>
+          <p class="section-intro">A selection of applied and academic work. Add formal publication details and project links here as they become available.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <span class="project-tag">Applied fisheries research · NIOMR / FAO</span>
+            <h3>Prototype sustainable fish-smoking kilns for small-scale processors</h3>
+            <p>Contributed to a project focused on developing and evaluating two prototype kilns designed to improve fish-smoking efficiency for Nigerian small-scale processors.</p>
+            <ul><li>Participated in project planning and progress meetings.</li><li>Supported budgeting and technical/interim reporting.</li><li>Contributed microbial storage analyses and sensory evaluation.</li></ul>
+          </article>
+          <article class="project">
+            <span class="project-tag">MSc research · University of Ibadan</span>
+            <h3>Phytase production using agricultural waste substrates</h3>
+            <p>Investigated phytase produced by <em>Aspergillus</em> species using agricultural residues, examining the potential of low-cost substrates for enzyme production.</p>
+            <ul><li>Applied submerged fermentation techniques.</li><li>Conducted spectrophotometric enzyme assays and standard-curve analysis.</li><li>Explored process optimisation and waste-based bioprocessing.</li></ul>
+          </article>
+          <article class="project">
+            <span class="project-tag">Food microbiology · NIOMR</span>
+            <h3>Microbial quality and shelf-life evaluation of fish products</h3>
+            <p>Contribute to microbiological assessments that support food safety, quality monitoring and the evaluation of fish preservation and storage practices.</p>
+            <ul><li>Microbial enumeration and hygiene-indicator testing.</li><li>Monitoring of microbial changes during storage.</li><li>Interpretation of results in relation to product quality.</li></ul>
+          </article>
+          <article class="project">
+            <span class="project-tag">Research interest · Circular bioeconomy</span>
+            <h3>Biological valorisation of underutilised resources</h3>
+            <p>Developing research interests around the use of microbial and biotechnological processes to convert marine and agricultural residues into higher-value products.</p>
+            <ul><li>Agro-industrial and fish-processing by-product utilisation.</li><li>Fermentation-based production of enzymes and bio-based products.</li><li>Resource efficiency and sustainable bioprocessing.</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap skills-wrap">
+        <div><div class="kicker">Technical toolkit</div><h2>Methods & capabilities.</h2><p>Practical laboratory, research and project-support skills developed through academic research and applied work.</p></div>
+        <div class="chips">
+          <span class="chip">Food & water microbiology</span><span class="chip">Microbial enumeration</span><span class="chip">Total viable count</span><span class="chip">Coliform analysis</span><span class="chip">Yeast & mould enumeration</span><span class="chip">Pathogen detection</span><span class="chip">Antimicrobial susceptibility testing</span><span class="chip">Shelf-life studies</span><span class="chip">Sensory evaluation</span><span class="chip">Submerged fermentation</span><span class="chip">Solid-state fermentation</span><span class="chip">Spectrophotometry</span><span class="chip">Laboratory quality practices</span><span class="chip">Research reporting</span><span class="chip">Project coordination</span><span class="chip">Microsoft Excel & SPSS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="education">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Academic background</div><h2>Education & training.</h2></div></div>
+        <div class="education-grid">
+          <article class="education"><h3>MSc, Microbiology</h3><p>University of Ibadan, Nigeria · 2021–2023<br>Research focus: phytase production by <em>Aspergillus</em> species using agricultural waste substrates.</p></article>
+          <article class="education"><h3>BSc, Microbiology</h3><p>University of Ilorin, Nigeria · 2014–2018<br>Undergraduate research included the use of agro-waste substrates for microbial protein production.</p></article>
+          <article class="education"><h3>Marine & environmental training</h3><p>Training in marine protected-area monitoring, with exposure to QGIS, Ocean Data View and AZTI-AMBI tools.</p></article>
+          <article class="education"><h3>Professional development</h3><p>Hands-on training in molecular biology and sequence analysis, including nucleic acid extraction, PCR, gel electrophoresis and sequence analysis.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="kicker">Connect & collaborate</div>
+        <h2>Interested in research that creates practical impact?</h2>
+        <div class="contact-row">
+          <div>
+            <p>I welcome conversations about research collaborations, postgraduate opportunities, scientific projects and knowledge exchange in microbiology, fisheries, food safety and sustainable bioprocessing.</p>
+            <p class="edit-note">Before publishing: replace the contact placeholders below with your professional email and profile URLs.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:your.email@example.com">Email me</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer">ORCID</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© <span id="year">2026</span> Research Portfolio</span><span>Microbiology · Food systems · Sustainable resource use</span></div></footer>
+</body>
+</html>
